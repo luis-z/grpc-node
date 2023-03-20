@@ -15,9 +15,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
 	client.getAll(null, (err, data) => {
 		if (!err) {
+			console.log('data :>> ', data);
 			res.render("customers", {
 				results: data.customers
 			});
+		}
+	});
+});
+app.get("/aloFrontend", (req, res) => {
+	client.getAlo(null, (err, data) => {
+		if (!err) {
+			console.log('data :>> ', data);
+			// res.redirect("/");
 		}
 	});
 });

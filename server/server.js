@@ -30,9 +30,15 @@ const customers = [
 	}
 ];
 
+const CustomerAloMessage = { message:  "alo" }
+
+
 server.addService(customersProto.CustomerService.service, {
 	getAll: (_, callback) => {
 		callback(null, { customers });
+	},
+	getAlo: (_, callback) => {
+		callback(null, CustomerAloMessage);
 	},
 
 	get: (call, callback) => {
